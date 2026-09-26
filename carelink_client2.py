@@ -262,9 +262,18 @@ class CareLinkClient(object):
          headers["mag-identifier"] = token_data["mag-identifier"]
       resp = requests.post(url=token_url, headers=headers, data=data)
       log.debug("   status: %d" % resp.status_code)
+
       if resp.status_code != 200:
+         print("REFRESH FAILED")
+         print("HTTP status:", resp.status_code)
+         print("Response:", resp.text)
          raise Exception("ERROR: failed to refresh token")
+         
       new_data = resp.json()
+      
+      print("REFRESH OK")
+      print("Returned fields:", list(new_data.keys()))
+      
       token_data["access_token"] = new_data["access_token"]
       token_data["refresh_token"] = new_data["refresh_token"]
       return token_data
