@@ -327,7 +327,7 @@ class CareLinkClient(object):
       
       # Token is valid
       auth_token_validto = datetime.utcfromtimestamp(token_validto).strftime("%a %b %d %H:%M:%S UTC %Y")
-      log.info("   access token expires in %ds (%s)" % (tdiff,auth_token_validto))
+      log.info("_expiration in %ds (%s)" % (tdiff,auth_token_validto))
       return True
 
    ###########################################################

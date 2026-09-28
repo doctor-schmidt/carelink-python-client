@@ -244,6 +244,13 @@ def do_login_non_auth0(endpoint_config):
 		raise Exception("Could not get token data")
 	
 	token_data = json.loads(token_req.text)
+	
+	print("TOKEN RESPONSE FIELDS:", list(token_data.keys()))
+	print("TOKEN RESPONSE NON-SECRETS:")
+	for key, value in token_data.items():
+		if key not in ["access_token", "refresh_token", "id_token"]:
+			print(" ", key, "=", value)
+	
 	print(f"got token data from server")
 
 	token_data["client_id"] = token_req_data["client_id"]

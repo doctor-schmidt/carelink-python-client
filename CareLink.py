@@ -1,6 +1,6 @@
 
 import logging
-logging.disable(logging.INFO)
+#logging.disable(logging.INFO)
 
 import carelink_client2
 from datetime import datetime
