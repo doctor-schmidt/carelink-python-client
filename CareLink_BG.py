@@ -35,7 +35,7 @@ for marker in markers:
         continue
 
     values = marker.get("data", {}).get("dataValues", {})
-
+    print(values)
     if marker_type == "BG_READING":
         raw_value = values.get("unitValue")
 
@@ -50,7 +50,7 @@ for marker in markers:
                 "mmol": glucose_mmol,
             })
 
-    elif marker_type == "MANUAL_BOLUS":
+    elif marker_type == "THERAPY":
         insulin = values.get("insulinUnits")
 
         if insulin is not None:

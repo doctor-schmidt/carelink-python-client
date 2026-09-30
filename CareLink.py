@@ -67,7 +67,8 @@ if injections:
     last_dt = None
 
     for marker in markers:
-        if marker.get("type") != "MANUAL_BOLUS":
+        #if marker.get("type") != "MANUAL_BOLUS":
+        if marker.get("type") != "AzulEC362A":
             continue
 
         timestamp = marker.get("timestamp")
