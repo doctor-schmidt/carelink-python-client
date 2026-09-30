@@ -27,6 +27,8 @@ markers = data.get("patientData", {}).get("markers", [])
 
 events = []
 
+valid_types = {"INPEN_BOLUS", "MANUAL_BOLUS"}
+
 for marker in markers:
     marker_type = marker.get("type")
     timestamp = marker.get("timestamp")
@@ -50,7 +52,7 @@ for marker in markers:
                 "mmol": glucose_mmol,
             })
 
-    elif marker_type == "THERAPY":
+    elif marker_type in  valid_types:
         insulin = values.get("insulinUnits")
 
         if insulin is not None:

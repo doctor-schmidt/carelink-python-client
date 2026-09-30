@@ -22,8 +22,10 @@ today = datetime.now().date()
 injections = []
 total = 0.0
 
+valid_types = {"INPEN_BOLUS", "MANUAL_BOLUS"}
+
 for marker in markers:
-    if marker.get("type") != "MANUAL_BOLUS":
+    if marker.get("type") not in valid_types:
         continue
 
     timestamp = marker.get("timestamp")
@@ -66,9 +68,10 @@ if injections:
     last_marker = None
     last_dt = None
 
+    valid_types = {"INPEN_BOLUS", "MANUAL_BOLUS"}
+
     for marker in markers:
-        #if marker.get("type") != "MANUAL_BOLUS":
-        if marker.get("type") != "AzulEC362A":
+        if marker.get("type") not in valid_types:
             continue
 
         timestamp = marker.get("timestamp")
