@@ -93,21 +93,20 @@ if injections:
         mins = minutes % 60
 
     print()
-    print(f"( {total:g}u   {len(injections)}   {last['units']:g}u {hours:01d}{mins:02d} )")
-    print("--------------------")
-    
+    print(f"{total:g}u  {len(injections)}")
+    print("________________\n")
     for injection in injections:
         minutes = injection["elapsed"]
         hours = minutes // 60
         mins = minutes % 60
     
         print(
-            f"{injection['time']}   "
-            f"{injection['units']:g}u "
+            f"{injection['time']}  "
+            f"{injection['units']:g}  "
             f"{hours}{mins:02d}"
         )
+    print()
     
-    print("--------------------")
     
 
 
